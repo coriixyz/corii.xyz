@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "about | coriixyz";
+const hobbies = [
+  "Tinkering with computer hardware & software",
+  "DIY Automotive Work",
+  "Hanging out with my cat 😎",
+  "FPS games",
+  "Watching anime on occasion (..or many occasions)",
+  "Mindlessly watching YouTube videos",
+];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <body>
+    <h2>Who am I?</h2>
+    <p>
+      👋 Hey, My name is Cori! My username is <b>coriixyz</b>; however, I previously went under the alias "<u>WindowsWorld</u>". I am a 20 year old student from the eastern United States studying <u>Information Technology</u>. 
+    </p>
+    <h2>Hobbies & Things I Enjoy</h2><p></p><ul>
+      {hobbies.map((hobbies) => <li class="hobby">{hobbies}</li>)}
+    </ul>
+    <h2>Contact</h2>
+    <p>Feel free to reach out using any of these methods:</p>
+    <ul>
+      <li>
+        Email: 
+        <a href="mailto:cori@corii.xyz">cori@corii.xyz</a>
+      </li>
+      <li>
+        Discord: <a title="*this link may not work if I am not added as a friend!" href="https://discord.com/users/203349703994245120"
+          >corii#0001</a
+        >
+      </li>
+    </ul>
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
+</BaseLayout>

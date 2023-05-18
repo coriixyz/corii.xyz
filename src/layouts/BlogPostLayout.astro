@@ -1,0 +1,13 @@
+---
+import BasicLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BasicLayout pageTitle={frontmatter.title}>
+  <p>
+    📅 {frontmatter.postDate.slice(0, 10)}
+  </p>
+  <img src={frontmatter.image.url} width="280" alt={frontmatter.image.alt} />
+  <p><em>{frontmatter.description}</em></p>
+  <slot />
+</BasicLayout>
