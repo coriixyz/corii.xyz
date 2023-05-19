@@ -25,7 +25,9 @@ const { pageTitle } = Astro.props;
     <slot />
     <Footer />
     <script>
-      import "../scripts/menu.js";
+      document.querySelector('.hamburger').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('expanded');
+      });
     </script>
   </body>
 </html>
