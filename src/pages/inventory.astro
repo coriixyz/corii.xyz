@@ -1,27 +1,28 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const allPosts = await Astro.glob("../pages/posts/*.md");
-const pageTitle = "winbyte | blog";
+const allItems = await Astro.glob("../pages/items/*.md");
+const pageTitle = "winbyte | inventory";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <p>
-    I may use this from time to time to post about things I find interesting!
+    A brief catalog of the various electronics I own and use
   </p>
   <section>
     {
-      allPosts.map((post) => (
-        <a href={post.url} class="blog-post">
+      allItems.map((item) => (
+        <a href={item.url} class="inventory-item">
           <article>
-            <h2>{post.frontmatter.title}</h2>
-            <p class="post-date">
-              {new Date(post.frontmatter.postDate).toLocaleDateString("en-US", {
+            <h2>{item.frontmatter.title}</h2>
+            <p class="item-date">
+              Date Added:
+              {new Date(item.frontmatter.itemDate).toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
               })}
             </p>
-            <p class="post-excerpt">{post.frontmatter.description}</p>
+            <p class="item-excerpt">{item.frontmatter.description}</p>
           </article>
         </a>
       ))
@@ -30,19 +31,19 @@ const pageTitle = "winbyte | blog";
 </BaseLayout>
 
 <style>
-  .blog-post {
+  .inventory-item {
     margin-bottom: 2rem;
     padding: 1rem;
     text-decoration: none;
   }
-  .blog-post h2 {
+  .inventory-item h2 {
     margin-bottom: 0.5rem;
     color: #94b3c1;
     font-family: "nunito",
       sans-serif;
     font-weight: 700;
   }
-  .post-date {
+  .item-date {
     margin-bottom: 0.5rem;
     font-size: 0.875rem;
     font-weight: 650;
@@ -50,7 +51,7 @@ const pageTitle = "winbyte | blog";
     font-family: "nunito",
       sans-serif;
   }
-  .post-excerpt {
+  .item-excerpt {
     font-size: 1rem;
     line-height: 1.5;
     color: #afc6ed;
