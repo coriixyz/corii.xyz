@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const allItems = await Astro.glob("../pages/items/*.md");
+let allItems = await Astro.glob("../pages/items/*.md");
+allItems = allItems.sort((a, b) => new Date(b.frontmatter.itemDate).valueOf() - new Date(a.frontmatter.itemDate).valueOf());
+
 const pageTitle = "winbyte | inventory";
 ---
 
@@ -13,6 +15,10 @@ const pageTitle = "winbyte | inventory";
       allItems.map((item) => (
         <a href={item.url} class="inventory-item">
           <article>
+            {/*
+            <img style="float: right;" src={item.frontmatter.image.url} width="225" height="150" alt={item.frontmatter.image.alt} />
+            image embed to be implemented
+            */}
             <h2>{item.frontmatter.title}</h2>
             <p class="item-date">
               Date Added:
