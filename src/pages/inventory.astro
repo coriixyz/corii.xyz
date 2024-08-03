@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 let allItems = await Astro.glob("../pages/inventory/*.md");
 allItems = allItems.sort((a, b) => new Date(b.frontmatter.itemDate).valueOf() - new Date(a.frontmatter.itemDate).valueOf());
 
-const pageTitle = "winbyte | inventory";
+const pageTitle = "coriixyz | inventory";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
